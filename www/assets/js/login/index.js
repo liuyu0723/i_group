@@ -1,5 +1,5 @@
-var iAdmin = iAdmin || {};
-iAdmin.loginIndex = (function ($, ypRecordVar) {
+var iGroup = iGroup || {};
+iGroup.loginIndex = (function ($, ypRecordVar) {
 
     var ajax = YP.ajax;
 
@@ -57,5 +57,5 @@ iAdmin.loginIndex = (function ($, ypRecordVar) {
 })(jQuery, YP_RECORD_VARS);
 
 $(function () {
-    iAdmin.loginIndex.init();
+    iGroup.loginIndex.init();
 })

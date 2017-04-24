@@ -19,7 +19,7 @@ class Convertor_Group extends Convertor_Base {
                 $dataTemp['status'] = $value['status'];
                 $dataTemp['groupId'] = $value['groupId'];
                 $dataTemp['groupName'] = $value['groupName'];
-                $dataTemp['statusShow'] = $value['status'] ? '启用' : '禁用';
+                $dataTemp['statusShow'] = $value['status'] ? Enum_Lang::getPageText('group', 'enable') : Enum_Lang::getPageText('group', 'disable');
                 $dataTemp['createTime'] = $value['createTime'] ? date('Y-m-d H:i:s', $value['createTime']) : '';
                 $dataTemp['lastLoginTime'] = $value['lastLoginTime'] ? date('Y-m-d H:i:s', $value['lastLoginTime']) : '';
                 $dataTemp['lastLoginIp'] = $value['lastLoginIp'] ? Util_Tools::ntoip($value['lastLoginIp']) : '';

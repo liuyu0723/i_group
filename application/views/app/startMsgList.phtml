@@ -2,6 +2,7 @@
 <html>
 <head>
     <?php include($webConfig['layoutPath'] . '/common/meta.phtml') ?>
+    <link type="text/css" rel="stylesheet" href="<?php echo $webConfig['imgDomain']; ?>css/select2.min.css"/>
 </head>
 <body>
 <?php include($webConfig['layoutPath'] . '/common/header.phtml') ?>
@@ -12,13 +13,13 @@
             <div class="cont-mod">
                 <div class="page-header page-header-custom">
                     <h1 class="h1-custom">
-                        <?php echo Enum_Lang::getPageText('nav', 'groupUser'); ?>
+                        <?php echo Enum_Lang::getPageText('nav', 'startMsgList'); ?>
                         <button id="createData" class="btn btn-info" style="margin-left: 5px;" type="button"
                                 data-toggle="modal" data-target="#editor"><?php echo Enum_Lang::getPageText('system', 'create'); ?>
                         </button>
                     </h1>
                 </div>
-                <?php include($webConfig['layoutPath'] . '/group/userList_filter.phtml') ?>
+                <?php include($webConfig['layoutPath'] . '/app/startMsgList_filter.phtml') ?>
                 <div class="cont-mod">
                     <div class="page-header page-header-custom"></div>
                     <div class="reservation">
@@ -28,13 +29,10 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th><?php echo Enum_Lang::getPageText('group', 'username'); ?></th>
-                                        <th><?php echo Enum_Lang::getPageText('group', 'realname'); ?></th>
-                                        <th><?php echo Enum_Lang::getPageText('group', 'status'); ?></th>
-                                        <th><?php echo Enum_Lang::getPageText('group', 'lastLoginTime'); ?></th>
-                                        <th><?php echo Enum_Lang::getPageText('group', 'lastLoginIp'); ?></th>
-                                        <th><?php echo Enum_Lang::getPageText('group', 'createTime'); ?></th>
-                                        <th><?php echo Enum_Lang::getPageText('system', 'option'); ?></th>
+                                        <th><?php echo Enum_Lang::getPageText('startMsg', 'showPic'); ?></th>
+                                        <th><?php echo Enum_Lang::getPageText('startMsg', 'redirectLink'); ?></th>
+                                        <th><?php echo Enum_Lang::getPageText('startMsg', 'status'); ?></th>
+                                        <th>操作</th>
                                     </tr>
                                     </thead>
                                     <tbody id="dataList"></tbody>
@@ -48,13 +46,13 @@
         </div>
     </div>
 </div>
-<?php include($webConfig['layoutPath'] . '/group/userList_edit.phtml'); ?>
+<?php include($webConfig['layoutPath'] . '/app/startMsgList_edit.phtml'); ?>
 <script type="text/javascript">
     var YP_GLOBAL_VARS = {
-        checkParams: '<?php echo json_encode(Enum_Group::getGroupUserMustInput());?>',
-        listUrl: '/groupajax/getUserList',
-        createBaseUrl: '/groupajax/createUser',
-        updateBaseUrl: '/groupajax/updateUser',
+        checkParams: '<?php echo json_encode(Enum_app::getStartMsgMustInput());?>',
+        listUrl: '/appajax/getStartMsgList',
+        createBaseUrl: '/appajax/createStartMsg',
+        updateBaseUrl: '/appajax/updateStartMsg',
     };
 </script>
 <?php include($webConfig['layoutPath'] . '/common/list_common.phtml'); ?>
@@ -62,20 +60,31 @@
 <script src="<?php echo $webConfig['imgDomain']; ?>js/common/yp_list.js"></script>
 <script src="<?php echo $webConfig['imgDomain']; ?>js/common/yp_form.js"></script>
 <script src="<?php echo $webConfig['imgDomain']; ?>js/lib/art.js"></script>
-<script src="<?php echo $webConfig['imgDomain']; ?>js/group/userList.js"></script>
+<script src="<?php echo $webConfig['imgDomain']; ?>js/lib/select2/select2.full.min.js" type="text/javascript"></script>
+<script src="<?php echo $webConfig['imgDomain']; ?>js/lib/select2/zh-CN.js" type="text/javascript"></script>
+<script src="<?php echo $webConfig['imgDomain']; ?>js/app/startMsgList.js"></script>
 </body>
 </html>
 <script id="dataList_tpl" type="text/html">
     {{each list as info i}}
     <tr dataId="{{info.id}}">
         <td type="id" data-value="{{info.id}}">{{info.id}}</td>
-        <td type="username" data-value="{{info.userName}}">{{info.userName}}</td>
-        <td type="realname" data-value="{{info.realName}}">{{info.realName}}</td>
-        <td type="remark" data-value="{{info.remark}}" style="display:none;"></td>
+        <td type="pic" data-value="{{info.pic}}">
+            {{if info.pic}}
+            <a href="{{info.pic}}" target="_blank">
+                <img src="{{info.pic}}" style="max-width: 100px;max-height: 100px;"/>
+            </a>
+            {{/if}}
+        </td>
+        <td type="url" data-value="{{info.url}}">
+            {{if info.url}}
+            <a href="{{info.url}}" target="_blank">
+                {{info.url}}
+            </a>
+            {{/if}}
+        </td>
         <td type="status" data-value="{{info.status}}">{{info.statusShow}}</td>
-        <td>{{info.lastLoginTime}}</td>
-        <td>{{info.lastLoginIp}}</td>
-        <td>{{info.createTime}}</td>
+        <td type="msg" data-value='{{info.msg}}' style="display: none;"></td>
         <td>
             <button op="editDataOne" type="button" class="btn btn-info btn-sm"
                     data-dataid="{{info.id}}"><?php echo Enum_Lang::getPageText('system', 'edit'); ?></button>

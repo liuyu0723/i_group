@@ -1,5 +1,5 @@
-var iAdmin = iAdmin || {};
-iAdmin.loginChangePass = (function($, ypRecordVar, ypGlobal) {
+var iGroup = iGroup || {};
+iGroup.loginChangePass = (function($, ypRecordVar, ypGlobal) {
 
     var tips = YP.alert;
 
@@ -40,5 +40,5 @@ iAdmin.loginChangePass = (function($, ypRecordVar, ypGlobal) {
 })(jQuery, YP_RECORD_VARS, YP_GLOBAL_VARS);
 
 $(function() {
-    iAdmin.loginChangePass.init();
+    iGroup.loginChangePass.init();
 })

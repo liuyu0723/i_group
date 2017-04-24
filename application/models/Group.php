@@ -14,7 +14,7 @@ class GroupModel extends \BaseModel {
                 $params['limit'] = 0;
             }
             $isCache = $cacheTime != 0 ? true : false;
-            $result = $this->rpcClient->getResultRaw('GU004', $params, $isCache, $cacheTime);
+            $result = $this->rpcClient->getResultRaw('AU004', $params, $isCache, $cacheTime);
         } while (false);
         return (array)$result;
     }
@@ -22,7 +22,7 @@ class GroupModel extends \BaseModel {
     public function saveUserDataInfo($paramList) {
         $params = $this->initParam($paramList);
         do {
-            $checkParams = Enum_Admin::getAdminUserMustInput();
+            $checkParams = Enum_Group::getGroupUserMustInput();
             $result = array(
                 'code' => 1,
                 'msg' => '参数错误'
@@ -41,7 +41,7 @@ class GroupModel extends \BaseModel {
             } else {
                 unset($params['password']);
             }
-            $interfaceId = $params['id'] ? 'GU006' : 'GU005';
+            $interfaceId = $params['id'] ? 'AU006' : 'AU005';
             $result = $this->rpcClient->getResultRaw($interfaceId, $params);
             if (!$result['code']) {
                 $this->getUserList(array(), -2);

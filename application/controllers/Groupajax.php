@@ -27,7 +27,7 @@ class GroupajaxController extends \BaseController {
     public function getUserListAction() {
         $paramList['page'] = $this->getPost('page');
         $paramList['id'] = intval($this->getPost('id'));
-        $paramList['groupid'] = intval($this->getPost('groupid'));
+        $paramList['groupid'] = intval($this->getGroupId());
         $paramList['username'] = $this->getPost('username');
         $status = $this->getPost('status');
         $status !== 'all' && !is_null($status) ? $paramList['status'] = intval($status) : false;
@@ -46,7 +46,7 @@ class GroupajaxController extends \BaseController {
         $paramList['password'] = trim($this->getPost("password"));
         $paramList['remark'] = trim($this->getPost("remark"));
         $paramList['status'] = intval($this->getPost("status"));
-        $paramList['groupid'] = intval($this->getPost("groupid"));
+        $paramList['groupid'] = intval($this->getGroupId());
         return $paramList;
     }
 

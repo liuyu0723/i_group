@@ -5,59 +5,53 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="myModalLabel">帐号编辑</h4>
+                <h4 class="modal-title" id="myModalLabel"><?php echo Enum_Lang::getPageText('group', 'editTitle'); ?></h4>
             </div>
             <div class="modal-body" id="detailBody" mf="modalfix">
                 <form class="form-horizontal" id="listEditor">
                     <input type="hidden" id="edit_id" value="0">
                     <div class="control-group" op="editFiled">
-                        <label class="control-label" for="edit_username">用户名：</label>
+                        <label class="control-label" for="edit_username"><?php echo Enum_Lang::getPageText('group', 'username'); ?>：</label>
                         <div class="controls">
-                            <input type="text" id="edit_username" placeholder="用户名" class="span3" data-title="用户名">
-                        </div>
-                    </div>
-                    <div class="control-group" op="editFiled" id="groupEdit">
-                        <label class="control-label" for="edit_groupid">集团：</label>
-                        <div class="controls">
-                            <select id="edit_groupid" data-title="状态">
-                                <?php foreach ($groupList as $group) { ?>
-                                    <option value="<?php echo $group['id']; ?>"><?php echo $group['name']; ?></option>
-                                <?php } ?>
-                            </select>
+                            <input type="text" id="edit_username" placeholder="<?php echo Enum_Lang::getPageText('group', 'username'); ?>" class="span3"
+                                   data-title="用户名">
                         </div>
                     </div>
                     <div class="control-group" op="editFiled">
-                        <label class="control-label" for="edit_realname">真实姓名：</label>
+                        <label class="control-label" for="edit_realname"><?php echo Enum_Lang::getPageText('group', 'realname'); ?>：</label>
                         <div class="controls">
-                            <input type="text" id="edit_realname" placeholder="真实姓名" class="span3" data-title="真实姓名">
+                            <input type="text" id="edit_realname" placeholder="<?php echo Enum_Lang::getPageText('group', 'realname'); ?>" class="span3"
+                                   data-title="真实姓名">
+                        </div>
+                    </div>
+                    <div class="control-group" op="editFiled" id="passwordEdit">
+                        <label class="control-label" for="edit_password"><?php echo Enum_Lang::getPageText('group', 'password'); ?>：</label>
+                        <div class="controls">
+                            <input type="text" id="edit_password" placeholder="<?php echo Enum_Lang::getPageText('group', 'pqsswordTips'); ?>" class="span3"
+                                   data-title="密码">
                         </div>
                     </div>
                     <div class="control-group" op="editFiled">
-                        <label class="control-label" for="edit_password">密码：</label>
-                        <div class="controls">
-                            <input type="text" id="edit_password" placeholder="无需修改请留空" class="span3" data-title="密码">
-                        </div>
-                    </div>
-                    <div class="control-group" op="editFiled">
-                        <label class="control-label" for="edit_remark">备注：</label>
+                        <label class="control-label" for="edit_remark"><?php echo Enum_Lang::getPageText('group', 'remark'); ?>：</label>
                         <div class="controls">
                             <textarea rows="3" id="edit_remark" class="span8" data-title="备注"></textarea>
                         </div>
                     </div>
                     <div class="control-group" op="editFiled">
-                        <label class="control-label" for="edit_status">状态：</label>
+                        <label class="control-label" for="edit_status"><?php echo Enum_Lang::getPageText('group', 'status'); ?>：</label>
                         <div class="controls">
                             <select id="edit_status" data-title="状态">
-                                <option value="0">禁用</option>
-                                <option value="1">启用</option>
+                                <option value="0"><?php echo Enum_Lang::getPageText('group', 'disable'); ?></option>
+                                <option value="1"><?php echo Enum_Lang::getPageText('group', 'enable'); ?></option>
                             </select>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-warning" id="saveListData" data-loading-text="保存中...">保存</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" id='closeEditor'>关闭</button>
+                <button type="button" class="btn btn-warning" id="saveListData"
+                        data-loading-text="<?php echo Enum_Lang::getPageText('system', 'saveing'); ?>"><?php echo Enum_Lang::getPageText('system', 'save'); ?></button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id='closeEditor'><?php echo Enum_Lang::getPageText('system', 'close'); ?></button>
             </div>
         </div>
     </div>

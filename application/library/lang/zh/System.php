@@ -16,6 +16,8 @@ class Lang_Zh_System {
     const SEARCHING = '查询中...';
     const VIEW = '查看';
     const OPTION = '操作';
+    const SAVE = '保存';
     const SAVEING = '保存中...';
+    const CLOSE = '关闭';
 
 }

@@ -10,6 +10,10 @@ class BaseController extends \Yaf_Controller_Abstract {
         $this->setPageHeaderInfo($this->userInfo);
     }
 
+    protected function getGroupId() {
+        return $this->userInfo['groupId'];
+    }
+
     private function setPageWebConfig() {
         $sysConfig = Yaf_Registry::get('sysConfig');
         $webConfig['layoutPath'] = $sysConfig->application->layout->directory;

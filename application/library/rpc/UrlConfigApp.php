@@ -1,126 +1,27 @@
 <?php
 
-class Rpc_UrlConfigAdmin {
+class Rpc_UrlConfigApp {
 
     private static $config = array(
-        'AU001' => array(
-            'name' => '后台登录',
-            'method' => 'getUserInfo',
+        'APP001' => array(
+            'name' => '获取APP启动消息列表',
+            'method' => 'getAppstartPicList',
             'auth' => true,
-            'url' => '/Administrator/login',
-            'param' => array(
-                'username' => array(
-                    'required' => true,
-                    'format' => 'string',
-                    'style' => 'interface'
-                ),
-                'password' => array(
-                    'required' => true,
-                    'format' => 'string',
-                    'style' => 'interface'
-                ),
-                'ip' => array(
-                    'required' => false,
-                    'format' => 'string',
-                    'style' => 'interface'
-                )
-            )
-        ),
-        'AU002' => array(
-            'name' => '新增后台操作日志',
-            'method' => 'addOperateLog',
-            'auth' => true,
-            'url' => '/Operatelog/addOperateLog',
-            'param' => array(
-                'operatorid' => array(
-                    'required' => true,
-                    'format' => 'int',
-                    'style' => 'interface'
-                ),
-                'dataid' => array(
-                    'required' => true,
-                    'format' => 'string',
-                    'style' => 'interface'
-                ),
-                'code' => array(
-                    'required' => false,
-                    'format' => 'int',
-                    'style' => 'interface'
-                ),
-                'msg' => array(
-                    'required' => false,
-                    'format' => 'string',
-                    'style' => 'interface'
-                ),
-                'module' => array(
-                    'required' => true,
-                    'format' => 'int',
-                    'style' => 'interface'
-                ),
-                'action' => array(
-                    'required' => true,
-                    'format' => 'int',
-                    'style' => 'interface'
-                ),
-                'ip' => array(
-                    'required' => true,
-                    'format' => 'string',
-                    'style' => 'interface'
-                ),
-                'miscinfo' => array(
-                    'required' => false,
-                    'format' => 'string',
-                    'style' => 'interface'
-                ),
-                'admintype' => array(
-                    'required' => true,
-                    'format' => 'int',
-                    'style' => 'interface'
-                )
-            )
-        ),
-        'AU003' => array(
-            'name' => '修改登录密码',
-            'method' => 'changePass',
-            'auth' => true,
-            'url' => '/Administrator/changePass',
-            'param' => array(
-                'userid' => array(
-                    'required' => true,
-                    'format' => 'int',
-                    'style' => 'interface'
-                ),
-                'oldpass' => array(
-                    'required' => true,
-                    'format' => 'string',
-                    'style' => 'interface'
-                ),
-                'newpass' => array(
-                    'required' => true,
-                    'format' => 'string',
-                    'style' => 'interface'
-                )
-            )
-        ),
-        'AU004' => array(
-            'name' => '获取管理员列表',
-            'method' => 'getAdministratorList',
-            'auth' => true,
-            'url' => '/Administrator/getAdministratorList',
+            'url' => '/appStartMsg/getAppstartMsgList',
             'param' => array(
                 'id' => array(
                     'required' => false,
                     'format' => 'int',
                     'style' => 'interface'
                 ),
-                'groupid' => array(
+                'type' => array(
                     'required' => false,
                     'format' => 'int',
                     'style' => 'interface'
                 ),
-                'username' => array(
+                'dataid' => array(
                     'required' => false,
-                    'format' => 'string',
+                    'format' => 'int',
                     'style' => 'interface'
                 ),
                 'status' => array(
@@ -137,27 +38,37 @@ class Rpc_UrlConfigAdmin {
                     'required' => false,
                     'format' => 'int',
                     'style' => 'interface'
-                )
+                ),
             )
         ),
-        'AU005' => array(
-            'name' => '新建管理员',
-            'method' => 'addAdministrator',
+        'APP002' => array(
+            'name' => '新建APP启动消息',
+            'method' => 'addAppstartMsg',
             'auth' => true,
-            'url' => '/Administrator/addAdministrator',
+            'url' => '/appStartMsg/addAppstartMsg',
             'param' => array(
-                'username' => array(
+                'type' => array(
                     'required' => true,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'dataid' => array(
+                    'required' => true,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'pic' => array(
+                    'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
                 ),
-                'realname' => array(
-                    'required' => true,
+                'msg' => array(
+                    'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
                 ),
-                'password' => array(
-                    'required' => true,
+                'url' => array(
+                    'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
                 ),
@@ -166,45 +77,40 @@ class Rpc_UrlConfigAdmin {
                     'format' => 'int',
                     'style' => 'interface'
                 ),
-                'groupid' => array(
-                    'required' => false,
-                    'format' => 'int',
-                    'style' => 'interface'
-                ),
-                'createadmin' => array(
-                    'required' => false,
-                    'format' => 'int',
-                    'style' => 'interface'
-                ),
-                'remark' => array(
-                    'required' => false,
-                    'format' => 'string',
-                    'style' => 'interface'
-                )
             )
         ),
-        'AU006' => array(
-            'name' => '更新管理员',
-            'method' => 'updateAdministratorById',
+        'APP003' => array(
+            'name' => '更新APP启动消息',
+            'method' => 'updateAppstartMsgById',
             'auth' => true,
-            'url' => '/Administrator/updateAdministratorById',
+            'url' => '/appStartMsg/updateAppstartMsgById',
             'param' => array(
                 'id' => array(
                     'required' => true,
                     'format' => 'int',
                     'style' => 'interface'
                 ),
-                'username' => array(
+                'type' => array(
                     'required' => true,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'dataid' => array(
+                    'required' => true,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'pic' => array(
+                    'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
                 ),
-                'realname' => array(
-                    'required' => true,
+                'msg' => array(
+                    'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
                 ),
-                'password' => array(
+                'url' => array(
                     'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
@@ -214,13 +120,89 @@ class Rpc_UrlConfigAdmin {
                     'format' => 'int',
                     'style' => 'interface'
                 ),
-                'remark' => array(
+            )
+        ),
+        'APP004' => array(
+            'name' => '获取APP推送列表',
+            'method' => 'getPushList',
+            'auth' => true,
+            'url' => '/push/getPushList',
+            'param' => array(
+                'id' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'type' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'dataid' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'result' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'page' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'limit' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+            )
+        ),
+        'APP005' => array(
+            'name' => '添加APP推送',
+            'method' => 'addPush',
+            'auth' => true,
+            'url' => '/push/addPush',
+            'param' => array(
+                'type' => array(
+                    'required' => true,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'dataid' => array(
+                    'required' => true,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'cn_title' => array(
+                    'required' => true,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'cn_value' => array(
                     'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
-                )
+                ),
+                'en_title' => array(
+                    'required' => true,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'en_value' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'url' => array(
+                    'required' => true,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
             )
-        )
+        ),
     );
 
     /**

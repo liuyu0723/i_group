@@ -9,7 +9,6 @@ class Convertor_Hotel extends Convertor_Base {
         );
         if (isset($list['code']) && !$list['code']) {
             $baseModel = new BaseModel();
-            $languageList = $baseModel->getLanguageList();
 
             $result = $list['data'];
             $tmp = array();
@@ -22,7 +21,11 @@ class Convertor_Hotel extends Convertor_Base {
                 $dataTemp['lng'] = $value['lng'];
                 $dataTemp['lat'] = $value['lat'];
                 $dataTemp['cityid'] = $value['cityid'];
-                $dataTemp['cityName'] = $value['cityName'];
+                if (Enum_Lang::getSystemLang() == Enum_Lang::LANG_KEY_CHINESE) {
+                    $dataTemp['cityName'] = $value['cityName'];
+                } else {
+                    $dataTemp['cityName'] = $value['cityEnName'];
+                }
                 $dataTemp['tel'] = $value['tel'];
                 $dataTemp['name_lang1'] = $value['name_lang1'];
                 $dataTemp['name_lang2'] = $value['name_lang2'];
@@ -40,13 +43,13 @@ class Convertor_Hotel extends Convertor_Base {
                 $dataTemp['introduction_lang2'] = $value['introduction_lang2'];
                 $dataTemp['introduction_lang3'] = $value['introduction_lang3'];
                 $dataTemp['status'] = $value['status'];
-                $dataTemp['statusShow'] = $value['status'] ? '启用' : '禁用';
+                $dataTemp['statusShow'] = $value['status'] ? Enum_Lang::getPageText('hotel', 'enable') : Enum_Lang::getPageText('hotel', 'disable');;
                 $langList = explode(",", $value['lang_list']);
-                $dataTemp['langlist'] = $value['lang_list'];
                 $dataTemp['langListShow'] = array();
-                foreach ($langList as $langId) {
-                    $dataTemp['langListShow'][] = $languageList[$langId];
+                foreach ($langList as $langKey => $langId) {
+                    $dataTemp['langListShow'][$langKey + 1] = Enum_Lang::getPageText('language', $langId);
                 }
+                $dataTemp['langlist'] = json_encode($dataTemp['langListShow']);
                 $dataTemp['langListShow'] = implode(',', $dataTemp['langListShow']);
                 $dataTemp['bookurl'] = $value['bookurl'];
                 $tmp[] = $dataTemp;

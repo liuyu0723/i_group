@@ -12,13 +12,13 @@
             <div class="cont-mod">
                 <div class="page-header page-header-custom">
                     <h1 class="h1-custom">
-                        <?php echo Enum_Lang::getPageText('nav', 'groupUser'); ?>
+                        <?php echo Enum_Lang::getPageText('nav', 'groupPush'); ?>
                         <button id="createData" class="btn btn-info" style="margin-left: 5px;" type="button"
                                 data-toggle="modal" data-target="#editor"><?php echo Enum_Lang::getPageText('system', 'create'); ?>
                         </button>
                     </h1>
                 </div>
-                <?php include($webConfig['layoutPath'] . '/group/userList_filter.phtml') ?>
+                <?php include($webConfig['layoutPath'] . '/app/push_filter.phtml') ?>
                 <div class="cont-mod">
                     <div class="page-header page-header-custom"></div>
                     <div class="reservation">
@@ -28,13 +28,11 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th><?php echo Enum_Lang::getPageText('group', 'username'); ?></th>
-                                        <th><?php echo Enum_Lang::getPageText('group', 'realname'); ?></th>
-                                        <th><?php echo Enum_Lang::getPageText('group', 'status'); ?></th>
-                                        <th><?php echo Enum_Lang::getPageText('group', 'lastLoginTime'); ?></th>
-                                        <th><?php echo Enum_Lang::getPageText('group', 'lastLoginIp'); ?></th>
-                                        <th><?php echo Enum_Lang::getPageText('group', 'createTime'); ?></th>
-                                        <th><?php echo Enum_Lang::getPageText('system', 'option'); ?></th>
+                                        <th><?php echo Enum_Lang::getPageText('push', 'title'); ?>（<?php echo Enum_Lang::getPageText('language', 'zh'); ?>）</th>
+                                        <th><?php echo Enum_Lang::getPageText('push', 'title'); ?>（<?php echo Enum_Lang::getPageText('language', 'en'); ?>）</th>
+                                        <th><?php echo Enum_Lang::getPageText('push', 'redirectUrl'); ?></th>
+                                        <th><?php echo Enum_Lang::getPageText('push', 'pushResult'); ?></th>
+                                        <th><?php echo Enum_Lang::getPageText('push', 'createTime'); ?></th>
                                     </tr>
                                     </thead>
                                     <tbody id="dataList"></tbody>
@@ -48,13 +46,12 @@
         </div>
     </div>
 </div>
-<?php include($webConfig['layoutPath'] . '/group/userList_edit.phtml'); ?>
+<?php include($webConfig['layoutPath'] . '/app/push_edit.phtml'); ?>
 <script type="text/javascript">
     var YP_GLOBAL_VARS = {
-        checkParams: '<?php echo json_encode(Enum_Group::getGroupUserMustInput());?>',
-        listUrl: '/groupajax/getUserList',
-        createBaseUrl: '/groupajax/createUser',
-        updateBaseUrl: '/groupajax/updateUser',
+        checkParams: '<?php echo json_encode(Enum_app::getPushMustInput());?>',
+        listUrl: '/appajax/getPushList',
+        createBaseUrl: '/appajax/createPush',
     };
 </script>
 <?php include($webConfig['layoutPath'] . '/common/list_common.phtml'); ?>
@@ -62,24 +59,24 @@
 <script src="<?php echo $webConfig['imgDomain']; ?>js/common/yp_list.js"></script>
 <script src="<?php echo $webConfig['imgDomain']; ?>js/common/yp_form.js"></script>
 <script src="<?php echo $webConfig['imgDomain']; ?>js/lib/art.js"></script>
-<script src="<?php echo $webConfig['imgDomain']; ?>js/group/userList.js"></script>
+<script src="<?php echo $webConfig['imgDomain']; ?>js/app/push.js"></script>
 </body>
 </html>
 <script id="dataList_tpl" type="text/html">
     {{each list as info i}}
     <tr dataId="{{info.id}}">
         <td type="id" data-value="{{info.id}}">{{info.id}}</td>
-        <td type="username" data-value="{{info.userName}}">{{info.userName}}</td>
-        <td type="realname" data-value="{{info.realName}}">{{info.realName}}</td>
-        <td type="remark" data-value="{{info.remark}}" style="display:none;"></td>
-        <td type="status" data-value="{{info.status}}">{{info.statusShow}}</td>
-        <td>{{info.lastLoginTime}}</td>
-        <td>{{info.lastLoginIp}}</td>
-        <td>{{info.createTime}}</td>
-        <td>
-            <button op="editDataOne" type="button" class="btn btn-info btn-sm"
-                    data-dataid="{{info.id}}"><?php echo Enum_Lang::getPageText('system', 'edit'); ?></button>
+        <td type="cnTitle" data-value="{{info.cn_title}}">{{info.cn_title}}</td>
+        <td type="enTitle" data-value="{{info.en_title}}">{{info.en_title}}</td>
+        <td type="url" data-value="{{info.url}}">
+            {{if info.url}}
+            <a href="{{info.url}}" target="_blank">
+                {{info.url}}
+            </a>
+            {{/if}}
         </td>
+        <td type="result" data-value="{{info.result}}">{{info.resultShow}}</td>
+        <td>{{info.createtime}}</td>
     </tr>
     {{/each}}
 </script>

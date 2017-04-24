@@ -24,7 +24,7 @@ class HotelajaxController extends \BaseController {
     public function getHotelListAction() {
         $paramList['id'] = intval($this->getPost('id'));
         $paramList['name'] = $this->getPost('name');
-        $paramList['groupid'] = intval($this->getPost('groupid'));
+        $paramList['groupid'] = intval($this->getGroupId());
         $status = $this->getPost('status');
         $status !== 'all' && !is_null($status) ? $paramList['status'] = intval($status) : false;
         $result = $this->hotelModal->getHotelList($paramList);
