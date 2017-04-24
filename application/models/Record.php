@@ -13,7 +13,7 @@ class RecordModel extends BaseModel {
             $params['ip'] = Util_Http::getIP();
             $params['miscinfo'] = $paramList['otherInfo'];
             $params['code'] = $paramList['code'];
-            $params['admintype'] = Enum_Record::RECORD_ADMIN_TYPE_ID;
+            $params['admintype'] = Enum_Record::RECORD_GROUP_TYPE_ID;
             if (empty($params['operatorid'])) {
                 $result = array(
                     'code' => 1,

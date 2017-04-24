@@ -23,6 +23,10 @@ class BaseController extends \Yaf_Controller_Abstract {
     private function setPageHeaderInfo($loginInfo) {
         $headerInfo['userName'] = $loginInfo['realName'] ? $loginInfo['realName'] : $loginInfo['userName'];
         $headerInfo['adminPermission'] = $loginInfo['createAdmin'] ? 0 : 1;
+        $useLangugae = Enum_Lang::getSystemLang();
+        $languageNameList = Enum_Lang::getLangeNameList();
+        $headerInfo['useLanguage'] = $useLangugae;
+        $headerInfo['useLanguageShow'] = $languageNameList[$useLangugae];
         $this->getView()->assign('headerInfo', $headerInfo);
     }
 
