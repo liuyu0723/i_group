@@ -1,0 +1,102 @@
+<div class="span2">
+    <div class="well side-nav">
+        <ul class="nav nav-list" id="navList">
+            <?php if ($headerInfo['adminPermission']) { ?>
+                <li class="nav-header">
+                <span class="nav-header-open">
+                    <i class="icon-plus icon-plus-opacity pull-right"></i>总后台管理
+                </span>
+                    <ul class="nav nav-list nav-li-list hide">
+                        <li><a href="/admin/userList">帐号管理</a></li>
+                    </ul>
+                </li>
+            <?php } ?>
+            <li class="nav-header">
+                <span class="nav-header-open">
+                    <i class="icon-plus icon-plus-opacity pull-right"></i>集团后台管理
+                </span>
+                <ul class="nav nav-list nav-li-list hide">
+                    <li><a href="/group/groupList">集团列表</a></li>
+                    <li><a href="/group/userList">集团帐号列表</a></li>
+                </ul>
+            </li>
+            <li class="nav-header">
+                <span class="nav-header-open">
+                    <i class="icon-plus icon-plus-opacity pull-right"></i>物业后台管理
+                </span>
+                <ul class="nav nav-list nav-li-list hide">
+                    <li><a href="/hotel/hotelList">物业列表</a></li>
+                    <li><a href="/hotel/userList">物业帐号列表</a></li>
+                </ul>
+            </li>
+            <li class="nav-header">
+                <span class="nav-header-open">
+                    <i class="icon-plus icon-plus-opacity pull-right"></i>APP管理
+                </span>
+                <ul class="nav nav-list nav-li-list hide">
+                    <li><a href="/app/startPicList">启动广告页管理</a></li>
+                    <li><a href="/app/versionList">版本更新管理</a></li>
+                    <li><a href="/app/appImgList">首屏图片管理</a></li>
+                    <li><a href="/app/startMsgList">启动消息管理</a></li>
+                    <li><a href="/app/push">全员推送</a></li>
+                    <li><a href="/app/feedbackList">意见反馈</a></li>
+                </ul>
+            </li>
+            <li class="nav-header">
+                <span class="nav-header-open">
+                    <i class="icon-plus icon-plus-opacity pull-right"></i>会员管理
+                </span>
+                <ul class="nav nav-list nav-li-list hide">
+                    <li><a href="/user/userList">会员列表</a></li>
+                </ul>
+            </li>
+            <li class="nav-header">
+                <span class="nav-header-open">
+                    <i class="icon-plus icon-plus-opacity pull-right"></i>系统管理
+                </span>
+                <ul class="nav nav-list nav-li-list hide">
+                    <li><a href="/system/adminOperateLog">总后台操作日志</a></li>
+                    <li><a href="/system/groupOperateLog">集团后台操作日志</a></li>
+                    <li><a href="/system/hotelOperateLog">物业后台操作日志</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var log = console.log.bind(console) || alert;
+    $(function () {
+        var pathname = window.location.pathname;
+        var defaultSelected = 0;
+        if (!pathname) {
+            defaultSelected = 1;
+        }
+
+        $('.nav-li-list a').each(function (i, item) {
+            var item = $(item);
+            if (defaultSelected) {
+                if (i == 0) {
+                    item.parent().addClass('active').parent('ul').removeClass('hide');
+                    return;
+                }
+            } else {
+                if (item.attr('href') == pathname) {
+                    item.parent().addClass('active').parent('ul').removeClass('hide').prev().children('i').removeClass('icon-plus').addClass('icon-minus');
+                    return;
+                }
+            }
+        });
+
+        $('.nav-header-open').on('click', function () {
+            var T = $(this);
+            var flag = T.next('.nav-li-list').toggle().css('display');
+            if (flag == 'block') {
+                T.find('i').removeClass('icon-plus').addClass('icon-minus');
+                var item = T.parents('ul').siblings().find('.nav-li-list').hide();
+            } else {
+                T.find('i').removeClass('icon-minus').addClass('icon-plus');
+            }
+            T.parents('ul').siblings().find('i').removeClass('icon-minus').addClass('icon-plus');
+        })
+    });
+</script>
