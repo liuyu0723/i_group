@@ -76,6 +76,11 @@ class Rpc_UrlConfigAdmin {
                     'required' => true,
                     'format' => 'int',
                     'style' => 'interface'
+                ),
+                'admintypeid' => array(
+                    'required' => true,
+                    'format' => 'int',
+                    'style' => 'interface'
                 )
             )
         ),

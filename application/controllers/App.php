@@ -14,6 +14,9 @@ class AppController extends \BaseController {
     }
 
     public function groupPushAction() {
+        $baseModel = new BaseModel();
+        $platform = $baseModel->getPlatformList();
+        $this->_view->assign('platform', $platform);
         $this->_view->display('app/push.phtml');
     }
 }

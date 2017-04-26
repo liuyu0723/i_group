@@ -61,6 +61,7 @@ class AppModel extends \BaseModel {
             $paramList['type'] ? $params['type'] = $paramList['type'] : false;
             $paramList['dataid'] ? $params['dataid'] = $paramList['dataid'] : false;
             isset($paramList['result']) ? $params['result'] = $paramList['result'] : false;
+            isset($paramList['platform']) ? $params['platform'] = $paramList['platform'] : false;
             $this->setPageParam($params, $paramList['page'], $paramList['limit'], 15);
             $result = $this->rpcClient->getResultRaw('APP004', $params);
         } while (false);
@@ -75,6 +76,7 @@ class AppModel extends \BaseModel {
                 'msg' => '参数错误'
             );
 
+            $paramList['platform'] ? $params['platform'] = $paramList['platform'] : false;
             $paramList['type'] ? $params['type'] = $paramList['type'] : false;
             $paramList['dataid'] ? $params['dataid'] = $paramList['dataid'] : false;
             $paramList['cn_title'] ? $params['cn_title'] = $paramList['cn_title'] : false;

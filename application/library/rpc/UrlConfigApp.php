@@ -133,6 +133,11 @@ class Rpc_UrlConfigApp {
                     'format' => 'int',
                     'style' => 'interface'
                 ),
+                'platform' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
                 'type' => array(
                     'required' => false,
                     'format' => 'int',
@@ -166,6 +171,11 @@ class Rpc_UrlConfigApp {
             'auth' => true,
             'url' => '/push/addPush',
             'param' => array(
+                'platform' => array(
+                    'required' => true,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
                 'type' => array(
                     'required' => true,
                     'format' => 'int',

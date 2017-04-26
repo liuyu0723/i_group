@@ -28,6 +28,7 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
+                                        <th><?php echo Enum_Lang::getPageText('push', 'platformType'); ?></th>
                                         <th><?php echo Enum_Lang::getPageText('push', 'title'); ?>（<?php echo Enum_Lang::getPageText('language', 'zh'); ?>）</th>
                                         <th><?php echo Enum_Lang::getPageText('push', 'title'); ?>（<?php echo Enum_Lang::getPageText('language', 'en'); ?>）</th>
                                         <th><?php echo Enum_Lang::getPageText('push', 'redirectUrl'); ?></th>
@@ -66,6 +67,7 @@
     {{each list as info i}}
     <tr dataId="{{info.id}}">
         <td type="id" data-value="{{info.id}}">{{info.id}}</td>
+        <td type="platform" data-value="{{info.platform}}">{{info.platformShow}}</td>
         <td type="cnTitle" data-value="{{info.cn_title}}">{{info.cn_title}}</td>
         <td type="enTitle" data-value="{{info.en_title}}">{{info.en_title}}</td>
         <td type="url" data-value="{{info.url}}">

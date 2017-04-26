@@ -71,6 +71,7 @@ class LoginModel extends \BaseModel {
             }
             $result['data']['insertId'] = $result['data']['id'];
             Enum_Record::setRecordData('adminId', $result['data']['id']);
+            Enum_Record::setRecordData('groupId', $result['data']['groupId']);
         } while (false);
         return $result;
     }

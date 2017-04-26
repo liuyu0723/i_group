@@ -71,6 +71,8 @@ class AppajaxController extends \BaseController {
         $paramList['dataid'] = $this->getGroupId();
         $result = $this->getPost('result');
         $result !== 'all' && !is_null($result) ? $paramList['result'] = intval($result) : false;
+        $platform = $this->getPost('platform');
+        $platform !== 'all' && !is_null($platform) ? $paramList['platform'] = intval($platform) : false;
         $result = $this->appModel->getPushList($paramList);
         $result = $this->appConvertor->pushListConvertor($result);
         $this->echoJson($result);
@@ -80,6 +82,7 @@ class AppajaxController extends \BaseController {
         $paramList = array();
         $paramList['type'] = Enum_App::PUSH_TYPE_GROUP;
         $paramList['dataid'] = $this->getGroupId();
+        $paramList['platform'] = intval($this->getPost("platform"));
         $paramList['cn_title'] = trim($this->getPost("cnTitle"));
         $paramList['cn_value'] = trim($this->getPost("cnValue"));
         $paramList['en_title'] = trim($this->getPost("enTitle"));

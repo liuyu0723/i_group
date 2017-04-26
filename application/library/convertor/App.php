@@ -36,6 +36,8 @@ class Convertor_App extends Convertor_Base {
         if (isset($list['code']) && !$list['code']) {
             $result = $list['data'];
             $tmp = array();
+            $baseModel = new BaseModel();
+            $platformList = $baseModel->getPlatformList();
             foreach ($result['list'] as $key => $value) {
                 $dataTemp = array();
                 $dataTemp['id'] = $value['id'];
@@ -46,6 +48,8 @@ class Convertor_App extends Convertor_Base {
                 $dataTemp['url'] = $value['url'];
                 $dataTemp['result'] = $value['result'];
                 $dataTemp['resultShow'] = $value['result'] ? Enum_Lang::getPageText('push', 'resultFail') : Enum_Lang::getPageText('push', 'resultSuccess');
+                $dataTemp['platform'] = $value['platform'];
+                $dataTemp['platformShow'] = $platformList[$dataTemp['platform']];
                 $dataTemp['createtime'] = $value['createtime'] ? date('Y-m-d H:i:s', $value['createtime']) : '';
                 $tmp[] = $dataTemp;
             }

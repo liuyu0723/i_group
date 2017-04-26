@@ -14,6 +14,7 @@ class RecordModel extends BaseModel {
             $params['miscinfo'] = $paramList['otherInfo'];
             $params['code'] = $paramList['code'];
             $params['admintype'] = Enum_Record::RECORD_GROUP_TYPE_ID;
+            $params['admintypeid'] = $paramList['groupId'];
             if (empty($params['operatorid'])) {
                 $result = array(
                     'code' => 1,

@@ -11,4 +11,5 @@ class Lang_Zh_Push {
     const CONTENT = '内容';
     const REDIRECTURL = '跳转URL';
     const CREATETIME = '创建时间';
+    const PLATFORMTYPE = '设备类型';
 }
