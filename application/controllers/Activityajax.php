@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @author ZXM
+ * 活动管理请求
  */
 class ActivityajaxController extends \BaseController {
 
@@ -21,6 +21,9 @@ class ActivityajaxController extends \BaseController {
         $this->activityConvertor = new Convertor_Activity();
     }
 
+    /**
+     * 获取活动用户报名列表
+     */
     public function getActivityOrderListAction() {
         $paramList['id'] = intval($this->getPost('id'));
         $paramList['name'] = trim($this->getPost('name'));

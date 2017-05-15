@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @author ZXM
+ * 物业请求控制器
  */
 class HotelajaxController extends \BaseController {
 
@@ -21,6 +21,9 @@ class HotelajaxController extends \BaseController {
         $this->hotelConvertor = new Convertor_Hotel();
     }
 
+    /**
+     * 获取物业列表
+     */
     public function getHotelListAction() {
         $paramList['id'] = intval($this->getPost('id'));
         $paramList['name'] = $this->getPost('name');

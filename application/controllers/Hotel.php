@@ -1,8 +1,7 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: ZXM
+ * 物业管理控制器
  */
 class HotelController extends \BaseController {
 
@@ -10,6 +9,9 @@ class HotelController extends \BaseController {
         parent::init();
     }
 
+    /**
+     * 物业列表
+     */
     public function hotelListAction() {
         $cityModel = new CityModel();
         $cityList = $cityModel->getCityList(array());

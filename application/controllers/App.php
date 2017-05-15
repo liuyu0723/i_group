@@ -1,11 +1,13 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: ZXM
+ * APP管理
  */
 class AppController extends \BaseController {
 
+    /**
+     * 启动消息
+     */
     public function startMsgListAction() {
         $baseModel = new BaseModel();
         $allowTypeImage = $baseModel->getAllowUploadFileType(Enum_Oss::OSS_PATH_IMAGE);
@@ -13,6 +15,9 @@ class AppController extends \BaseController {
         $this->_view->display('app/startMsgList.phtml');
     }
 
+    /**
+     * 集团推送
+     */
     public function groupPushAction() {
         $baseModel = new BaseModel();
         $platform = $baseModel->getPlatformList();

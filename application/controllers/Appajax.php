@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @author ZXM
+ * APP请求
  */
 class AppajaxController extends \BaseController {
 
@@ -21,6 +21,9 @@ class AppajaxController extends \BaseController {
         $this->appConvertor = new Convertor_App();
     }
 
+    /**
+     * 获取启动消息列表
+     */
     public function getStartMsgListAction() {
         $paramList['id'] = intval($this->getPost('id'));
         $paramList['type'] = intval(Enum_App::START_MSG_TYPE_GROUP);
@@ -65,6 +68,9 @@ class AppajaxController extends \BaseController {
         $this->echoJson($result);
     }
 
+    /**
+     * 获取集团推送列表
+     */
     public function getPushListAction() {
         $paramList['id'] = intval($this->getPost('id'));
         $paramList['type'] = Enum_App::PUSH_TYPE_GROUP;
@@ -78,6 +84,9 @@ class AppajaxController extends \BaseController {
         $this->echoJson($result);
     }
 
+    /**
+     * 新建集团推送
+     */
     public function createPushAction() {
         $paramList = array();
         $paramList['type'] = Enum_App::PUSH_TYPE_GROUP;

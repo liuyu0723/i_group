@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * 基础控制器
+ */
 class BaseController extends \Yaf_Controller_Abstract {
 
     protected $userInfo;
@@ -10,10 +13,16 @@ class BaseController extends \Yaf_Controller_Abstract {
         $this->setPageHeaderInfo($this->userInfo);
     }
 
+    /**
+     * 获取集团ID
+     */
     protected function getGroupId() {
         return $this->userInfo['groupId'];
     }
 
+    /**
+     * 设置页面变量
+     */
     private function setPageWebConfig() {
         $sysConfig = Yaf_Registry::get('sysConfig');
         $webConfig['layoutPath'] = $sysConfig->application->layout->directory;
@@ -24,6 +33,9 @@ class BaseController extends \Yaf_Controller_Abstract {
         $this->getView()->assign('webConfig', $webConfig);
     }
 
+    /**
+     * 设置头部信息
+     */
     private function setPageHeaderInfo($loginInfo) {
         $headerInfo['userName'] = $loginInfo['realName'] ? $loginInfo['realName'] : $loginInfo['userName'];
         $headerInfo['adminPermission'] = $loginInfo['createAdmin'] ? 0 : 1;

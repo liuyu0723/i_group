@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * APP数据转换器
+ */
 class Convertor_App extends Convertor_Base {
 
+    /**
+     * 启动消息列表
+     */
     public function startMsgListConvertor($list) {
         $data = array(
             'code' => intval($list['code']),
@@ -28,6 +34,9 @@ class Convertor_App extends Convertor_Base {
         return $data;
     }
 
+    /**
+     * 集团推送列表
+     */
     public function pushListConvertor($list) {
         $data = array(
             'code' => intval($list['code']),

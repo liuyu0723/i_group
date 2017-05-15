@@ -1,8 +1,7 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: ZXM
+ * 活动管理
  */
 class ActivityController extends \BaseController {
 
@@ -10,6 +9,9 @@ class ActivityController extends \BaseController {
         parent::init();
     }
 
+    /**
+     * 获取活动用户报名列表
+     */
     public function activityUserListAction() {
         $hotelModel = new HotelModel();
         $hotelList = $hotelModel->getHotelList(array('groupid' => $this->getGroupId()), 3600);

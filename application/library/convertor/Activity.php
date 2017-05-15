@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * 活动数据转换器
+ */
 class Convertor_Activity extends Convertor_Base {
 
+    /**
+     * 活动参与用户列表
+     */
     public function activityOrderListConvertor($list) {
         $data = array(
             'code' => intval($list['code']),

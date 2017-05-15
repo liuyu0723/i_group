@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * APP管理
+ */
 class AppModel extends \BaseModel {
 
+    /**
+     * 获取启动消息列表
+     */
     public function getStartMsgList($paramList) {
         do {
             $paramList['id'] ? $params['id'] = $paramList['id'] : false;
@@ -16,6 +22,9 @@ class AppModel extends \BaseModel {
         return (array)$result;
     }
 
+    /**
+     * 新建和编辑启动消息数据
+     */
     public function saveStartMsgDataInfo($paramList) {
         $params = $this->initParam();
         do {
@@ -55,6 +64,9 @@ class AppModel extends \BaseModel {
         return $result;
     }
 
+    /**
+     * 获取集团推送列表
+     */
     public function getPushList($paramList) {
         do {
             $paramList['id'] ? $params['id'] = $paramList['id'] : false;
@@ -68,6 +80,9 @@ class AppModel extends \BaseModel {
         return (array)$result;
     }
 
+    /**
+     * 新建集团推送
+     */
     public function createPush($paramList) {
         $params = $this->initParam();
         do {

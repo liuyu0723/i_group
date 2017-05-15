@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * 集团Model
+ */
 class GroupModel extends \BaseModel {
 
+    /**
+     * 获取管理员列表
+     */
     public function getUserList($paramList, $cacheTime = 0) {
         do {
             if ($cacheTime == 0) {
@@ -19,6 +25,9 @@ class GroupModel extends \BaseModel {
         return (array)$result;
     }
 
+    /**
+     * 新建和编辑集团管理员数据
+     */
     public function saveUserDataInfo($paramList) {
         $params = $this->initParam($paramList);
         do {

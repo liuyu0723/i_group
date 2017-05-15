@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * 物业Model
+ */
 class HotelModel extends \BaseModel {
 
+    /**
+     * 获取物业列表
+     */
     public function getHotelList($paramList, $cacheTime = 0) {
         do {
             $paramList['id'] ? $params['id'] = $paramList['id'] : false;

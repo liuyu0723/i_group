@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * 物业数据转换器
+ */
 class Convertor_Hotel extends Convertor_Base {
 
+    /**
+     * 物业列表
+     */
     public function hotelListConvertor($list) {
         $data = array(
             'code' => intval($list['code']),

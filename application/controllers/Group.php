@@ -1,8 +1,7 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: ZXM
+ * 集团控制器
  */
 class GroupController extends \BaseController {
 
@@ -10,6 +9,9 @@ class GroupController extends \BaseController {
         parent::init();
     }
 
+    /**
+     * 管理员列表
+     */
     public function userListAction() {
         $this->_view->display('group/userList.phtml');
     }

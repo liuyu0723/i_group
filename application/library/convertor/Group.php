@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * 集团管理数据转换器
+ */
 class Convertor_Group extends Convertor_Base {
 
+    /**
+     * 集团管理员
+     */
     public function userListConvertor($list) {
         $data = array(
             'code' => intval($list['code']),

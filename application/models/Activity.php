@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * 活动管理
+ */
 class ActivityModel extends \BaseModel {
 
+    /**
+     * 获取活动列表
+     */
     public function getActivityList($paramList, $cacheTime = 0) {
         do {
             $paramList['groupid'] ? $params['groupid'] = $paramList['groupid'] : false;
@@ -16,6 +22,9 @@ class ActivityModel extends \BaseModel {
         return (array)$result;
     }
 
+    /**
+     * 获取活动用户报名列表
+     */
     public function getActivityOrderList($paramList, $cacheTime = 0) {
         do {
             $paramList['id'] ? $params['id'] = $paramList['id'] : false;
