@@ -16,6 +16,8 @@ class Enum_Request {
             'GH' => 'Rpc_UrlConfigHotel',
             'GA' => 'Rpc_UrlConfigActivity',
             'APP' => 'Rpc_UrlConfigApp',
+            'NT' => 'Rpc_UrlConfigNews',
+            'N' => 'Rpc_UrlConfigNotic',
         );
         $fileKey = preg_replace('/\d+/', '', $interfaceId);
         $fileNameKey = $config[$fileKey];

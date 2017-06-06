@@ -115,4 +115,19 @@ class BaseController extends \Yaf_Controller_Abstract {
             return $_POST;
         }
     }
+
+    /**
+     * 设置允许上传文件类型
+     */
+    protected function setAllowUploadFileType($type, $pageKey) {
+        $baseModel = new BaseModel();
+        $allowType = $baseModel->getAllowUploadFileType($type);
+        $this->_view->assign($pageKey, array_keys($allowType['data']['list']));
+    }
+
+    public function makeOssKeyAction() {
+        $ossModel = new OssModel();
+        $ossKey = $ossModel->makeOssKey();
+        echo json_encode($ossKey);
+    }
 }

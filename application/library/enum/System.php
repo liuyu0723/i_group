@@ -2,7 +2,7 @@
 
 class Enum_System {
 
-    const RPC_REQUEST_PACKAGE = 'ia';
+    const RPC_REQUEST_PACKAGE = 'ig';
 
     const SERVICE_API_DOMAIN = 'http://testapi.liheinfo.com';
 

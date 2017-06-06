@@ -6,8 +6,18 @@ class Lang_Zh_Nav {
     const GROUPUSER = '帐号列表';
     const HOTELLIST = '物业列表';
 
-    const ACTIVITYUSERMANAGER = '活动管理';
-    const ACTIVITYUSER = '活动报名用户';
+    const ACTIVITY = '活动管理';
+    const ACTIVITYTAG = '标签管理';
+    const ACTIVITYLIST = '集团活动';
+    const ACTIVITYORDER = '活动报名信息';
+
+    const NEWS = '集团新闻';
+    const NEWSTAG = '标签管理';
+    const NEWSLIST = '新闻管理';
+
+    const NOTIC = '集团通知';
+    const NOTICTAG = '标签管理';
+    const NOTICLIST = '通知管理';
 
     const APPMANAGER = 'APP管理';
     const STARTMSGLIST = '启动消息管理';

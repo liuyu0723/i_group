@@ -1,14 +1,14 @@
 <?php
 
 /**
- * 活动管理请求
+ * 活动请求控制器
  */
 class ActivityajaxController extends \BaseController {
 
     /**
      * @var ActivityModel
      */
-    private $activtyModel;
+    private $activityModel;
 
     /**
      * @var Convertor_Activity
@@ -17,23 +17,115 @@ class ActivityajaxController extends \BaseController {
 
     public function init() {
         parent::init();
-        $this->activtyModel = new ActivityModel();
+        $this->activityModel = new ActivityModel();
         $this->activityConvertor = new Convertor_Activity();
     }
 
     /**
-     * 获取活动用户报名列表
+     * 获取tag列表
      */
-    public function getActivityOrderListAction() {
-        $paramList['id'] = intval($this->getPost('id'));
-        $paramList['name'] = trim($this->getPost('name'));
-        $paramList['phone'] = trim($this->getPost('phone'));
-        $paramList['hotelid'] = intval($this->getPost('hotelid'));
-        $paramList['activityid'] = intval($this->getPost('activityid'));
-        $paramList['groupid'] = intval($this->getGroupId());
-        $result = $this->activtyModel->getActivityOrderList($paramList);
-        $result = $this->activityConvertor->activityOrderListConvertor($result);
+    public function getTagListAction() {
+        $paramList['page'] = $this->getPost('page');
+        $paramList['groupid'] = $this->getGroupId();
+        $result = $this->activityModel->getTagList($paramList);
+        $result = $this->activityConvertor->activityTagListConvertor($result);
         $this->echoJson($result);
     }
 
+    /**
+     * 新建和编辑tag信息数据
+     */
+    private function handlerTagSaveParams() {
+        $paramList = array();
+        $paramList['title'] = trim($this->getPost("title"));
+        $paramList['groupid'] = intval($this->getGroupId());
+        return $paramList;
+    }
+
+    /**
+     * 新建tag信息
+     */
+    public function createTagAction() {
+        $paramList = $this->handlerTagSaveParams();
+        $result = $this->activityModel->saveTagDataInfo($paramList);
+        $this->echoJson($result);
+    }
+
+    /**
+     * 更新tag信息
+     */
+    public function updateTagAction() {
+        $paramList = $this->handlerTagSaveParams();
+        $paramList['id'] = intval($this->getPost("id"));
+        $result = $this->activityModel->saveTagDataInfo($paramList);
+        $this->echoJson($result);
+    }
+
+    /**
+     * 获取活动列表
+     */
+    public function getActivityListAction() {
+        $paramList['page'] = $this->getPost('page');
+        $paramList['groupid'] = $this->getGroupId();
+        $paramList['id'] = intval($this->getPost('id'));
+        $paramList['tagid'] = intval($this->getPost('tag'));
+        $paramList['title'] = $this->getPost('title');
+        $status = $this->getPost('status');
+        $status !== 'all' && !is_null($status) ? $paramList['status'] = intval($status) : false;
+        $result = $this->activityModel->getActivityList($paramList);
+        $result = $this->activityConvertor->activityListConvertor($result);
+        $this->echoJson($result);
+    }
+
+    /**
+     * 新建和编辑活动信息
+     */
+    private function handlerActivitySaveParams() {
+        $paramList = array();
+        $paramList['title'] = trim($this->getPost("title"));
+        $paramList['pdf'] = $_FILES['pdf'];
+        $paramList['pic'] = $_FILES['pic'];
+        $paramList['video'] = trim($this->getPost("video"));
+        $paramList['sort'] = intval($this->getPost("sort"));
+        $paramList['tagid'] = intval($this->getPost("tagid"));
+        $paramList['status'] = intval($this->getPost("status"));
+        $paramList['ordercount'] = intval($this->getPost("ordercount"));
+        $paramList['fromdate'] = strtotime($this->getPost("fromdate"));
+        $paramList['todate'] = strtotime($this->getPost("todate"));
+        $paramList['groupid'] = intval($this->getGroupId());
+        return $paramList;
+    }
+
+    /**
+     * 新建活动
+     */
+    public function createActivityAction() {
+        $paramList = $this->handlerActivitySaveParams();
+        $result = $this->activityModel->saveActvityDataInfo($paramList);
+        $this->echoJson($result);
+    }
+
+    /**
+     * 更新活动
+     */
+    public function updateActivityAction() {
+        $paramList = $this->handlerActivitySaveParams();
+        $paramList['id'] = intval($this->getPost("id"));
+        $result = $this->activityModel->saveActvityDataInfo($paramList);
+        $this->echoJson($result);
+    }
+
+    /**
+     * 获取活动参与订单列表
+     */
+    public function getOrderListAction() {
+        $paramList['id'] = intval($this->getPost('id'));
+        $paramList['name'] = trim($this->getPost('name'));
+        $paramList['phone'] = trim($this->getPost('phone'));
+        $paramList['activityid'] = intval($this->getPost('activityid'));
+        $paramList['groupid'] = intval($this->getGroupId());
+        $result = $this->activityModel->getOrderList($paramList);
+        $result = $this->activityConvertor->orderListConvertor($result);
+        $this->echoJson($result);
+    }
 }
