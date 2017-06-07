@@ -21,4 +21,7 @@ class Lang_Zh_System {
     const CLOSE = '关闭';
     const ARTICLE = '正文';
     const ARTICLELINK = '文章链接';
+
+    const EXPORT = '导出';
+    const EXPORTING = '导出中...';
 }

@@ -89,8 +89,6 @@ class Convertor_Activity extends Convertor_Base {
                 $dataTemp['name'] = $value['name'];
                 $dataTemp['phone'] = $value['phone'];
                 $dataTemp['createtime'] = $value['createtime'] ? date('Y-m-d H:i:s', $value['createtime']) : '';
-                $dataTemp['hotelid'] = $value['hotelid'];
-                $dataTemp['hotelName'] = $value['hotelName'];
                 $dataTemp['activityid'] = $value['activityid'];
                 $dataTemp['activityName'] = $value['activityName'];
                 $dataTemp['ordercount'] = $value['orderCount'];
