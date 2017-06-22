@@ -24,7 +24,9 @@ iGroup.loginIndex = (function ($, ypRecordVar) {
     }
 
     function doLogin(params) {
+        var buttonDom = $("#submitForm");
         var url = '/loginajax/doLogin';
+        buttonDom.button('loading');
         var xhr = ajax.ajax({
             url: url,
             type: 'POST',
@@ -36,6 +38,7 @@ iGroup.loginIndex = (function ($, ypRecordVar) {
         xhr.done(function () {
             location.href = "/index/index";
         }).fail(function (data) {
+            buttonDom.button('reset');
             showMsg(data.msg);
         });
     }
