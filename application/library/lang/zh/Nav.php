@@ -22,5 +22,9 @@ class Lang_Zh_Nav {
     const APPMANAGER = 'APP管理';
     const STARTMSGLIST = '启动消息管理';
     const GROUPPUSH = '集团推送';
+    const STARTPICLIST = '启动广告页管理';
+    const VERSIONLIST = '版本更新管理';
+    const APPIMGLIST = '首屏图片管理';
+    const FEEDBACKLIST = '意见反馈';
 
 }
