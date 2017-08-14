@@ -196,6 +196,41 @@ class Convertor_App extends Convertor_Base {
         }
         return $data;
     }
+
+    /**
+     * 获取关于我们语言版本列表
+     * @param $list
+     * @return array
+     */
+    public function aboutListConvertor($list) {
+        $data = array(
+            'code' => intval($list['code']),
+            'msg' => $list['msg']
+        );
+        if (isset($list['code']) && !$list['code']) {
+            $result = $list['data'];
+            $tmp = array();
+            $tmp[] = array(
+                'groupid' => $result['id'],
+                'type' => Enum_Article::ARTICLE_TYPE_ABOUT_ZH,
+                'key' => Enum_Lang::LANG_KEY_CHINESE,
+                'name' => Enum_Lang::getPageText('language', Enum_Lang::LANG_KEY_CHINESE),
+                'value' => $result['aboutZh']
+            );
+            $tmp[] = array(
+                'groupid' => $result['id'],
+                'type' => Enum_Article::ARTICLE_TYPE_ABOUT_EN,
+                'key' => Enum_Lang::LANG_KEY_ENGLISH,
+                'name' => Enum_Lang::getPageText('language', Enum_Lang::LANG_KEY_ENGLISH),
+                'value' => $result['aboutEn']
+            );
+            $data['data']['list'] = $tmp;
+            $data['data']['pageData']['page'] = 1;
+            $data['data']['pageData']['rowNum'] = 2;
+            $data['data']['pageData']['pageNum'] = 1;
+        }
+        return $data;
+    }
 }
 
 ?>

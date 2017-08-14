@@ -26,5 +26,10 @@ class Lang_Zh_Nav {
     const VERSIONLIST = '版本更新管理';
     const APPIMGLIST = '首屏图片管理';
     const FEEDBACKLIST = '意见反馈';
+    const ABOUT = '关于我们';
+
+    const HELP = '帮助管理';
+    const HELPTYPE = '分类管理';
+    const HELPLIST = '帮助信息';
 
 }

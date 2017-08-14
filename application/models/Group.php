@@ -58,4 +58,22 @@ class GroupModel extends \BaseModel {
         } while (false);
         return $result;
     }
+
+    /**
+     * 获取集团详情
+     */
+    public function getGroupDetail($paramList) {
+        $params = $this->initParam($paramList);
+        do {
+            $result = array(
+                'code' => 1,
+                'msg' => '参数错误'
+            );
+            if (empty($params['id'])) {
+                break;
+            }
+            $result = $this->rpcClient->getResultRaw('B006', $params);
+        } while (false);
+        return $result;
+    }
 }

@@ -71,6 +71,42 @@ class Rpc_UrlConfigBase {
             'url' => '/system/getPlatformList',
             'param' => array()
         ),
+        'B006' => array(
+            'name' => '获取集团信息',
+            'method' => 'getGroupDetail',
+            'auth' => true,
+            'url' => '/Group/getGroupDetail',
+            'param' => array(
+                'id' => array(
+                    'required' => true,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+            )
+        ),
+        'B007' => array(
+            'name' => '修改集团',
+            'method' => 'updateGroupbyId',
+            'auth' => true,
+            'url' => '/Group/updateGroupbyId',
+            'param' => array(
+                'id' => array(
+                    'required' => true,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'about_zh' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'about_en' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+            )
+        ),
     );
 
     /**

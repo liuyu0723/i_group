@@ -251,4 +251,15 @@ class AppajaxController extends \BaseController {
         $this->echoJson($result);
     }
 
+    /**
+     * 获取关于我们语言版本列表
+     */
+    public function getAboutListAction() {
+        $paramList['id'] = $this->getGroupId();
+        $groupModel = new GroupModel();
+        $result = $groupModel->getGroupDetail($paramList);
+        $result = $this->appConvertor->aboutListConvertor($result);
+        $this->echoJson($result);
+    }
+
 }

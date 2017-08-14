@@ -1,0 +1,45 @@
+<div class="hero-unit hero-unit-custom hero-unit-mgdbtm clearfix" id="listFilter">
+    <form class="form-horizontal">
+        <div class="control-group control-group-block">
+            <div class="pull-left control-item">
+                <span class="control-label">ID：</span>
+                <div class="controls">
+                    <input id="userid" data-paramkey='id' type="number" class="form-control input-medium" op="filterCase" value=''/>
+                </div>
+            </div>
+            <div class="pull-left control-item">
+                <span class="control-label"><?php echo Enum_Lang::getPageText('help', 'helpTitle'); ?>：</span>
+                <div class="controls">
+                    <input id="title" type="text" class="form-control input-medium" op="filterCase"/>
+                </div>
+            </div>
+            <div class="pull-left control-item">
+                <span class="control-label"><?php echo Enum_Lang::getPageText('help', 'status'); ?>：</span>
+                <div class="controls">
+                    <select id="status" class="input-medium select-long" op="filterCase">
+                        <option value="all"><?php echo Enum_Lang::getPageText('system', 'all'); ?></option>
+                        <option value="0"><?php echo Enum_Lang::getPageText('help', 'disable'); ?></option>
+                        <option value="1"><?php echo Enum_Lang::getPageText('help', 'enable'); ?></option>
+                    </select>
+                </div>
+            </div>
+            <div class="pull-left control-item">
+                <span class="control-label"><?php echo Enum_Lang::getPageText('help', 'type'); ?>：</span>
+                <div class="controls">
+                    <select id="type" class="input-medium select-long" op="filterCase">
+                        <?php foreach ($typeList as $typeOne) { ?>
+                            <option value="<?php echo $typeOne['id']; ?>"><?php if (Enum_Lang::getSystemLang() == Enum_Lang::LANG_KEY_CHINESE) {
+                                    echo $typeOne['title_zh'];
+                                } else {
+                                    echo $typeOne['title_en'];
+                                } ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+            <button id="searchBtn" class="mgtop5 pull-left btn btn-primary" type="button" data-loading-text="<?php echo Enum_Lang::getPageText('system', 'searching'); ?>">
+                <?php echo Enum_Lang::getPageText('system', 'search'); ?>
+            </button>
+        </div>
+    </form>
+</div>

@@ -61,4 +61,11 @@ class AppController extends \BaseController {
     public function feedbackListAction() {
         $this->_view->display('app/feedbackList.phtml');
     }
+
+    /**
+     * 关于我们
+     */
+    public function aboutAction() {
+        $this->_view->display('app/about.phtml');
+    }
 }
