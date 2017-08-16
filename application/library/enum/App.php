@@ -4,7 +4,7 @@ class Enum_App {
 
     const START_MSG_TYPE_GROUP = 2;
     const PUSH_TYPE_GROUP = 5;
-
+    const PUSH_CONTENT_TYPE_URL = 'url';
 
     public static function getStartMsgMustInput() {
         return array(

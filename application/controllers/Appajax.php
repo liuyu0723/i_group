@@ -74,6 +74,7 @@ class AppajaxController extends \BaseController {
     public function getPushListAction() {
         $paramList['id'] = intval($this->getPost('id'));
         $paramList['type'] = Enum_App::PUSH_TYPE_GROUP;
+        $paramList['content_type'] = Enum_App::PUSH_CONTENT_TYPE_URL;
         $paramList['dataid'] = $this->getGroupId();
         $result = $this->getPost('result');
         $result !== 'all' && !is_null($result) ? $paramList['result'] = intval($result) : false;
