@@ -215,14 +215,14 @@ class Convertor_App extends Convertor_Base {
                 'type' => Enum_Article::ARTICLE_TYPE_ABOUT_ZH,
                 'key' => Enum_Lang::LANG_KEY_CHINESE,
                 'name' => Enum_Lang::getPageText('language', Enum_Lang::LANG_KEY_CHINESE),
-                'value' => $result['aboutZh']
+                'value' => $result['about_zh']
             );
             $tmp[] = array(
                 'groupid' => $result['id'],
                 'type' => Enum_Article::ARTICLE_TYPE_ABOUT_EN,
                 'key' => Enum_Lang::LANG_KEY_ENGLISH,
                 'name' => Enum_Lang::getPageText('language', Enum_Lang::LANG_KEY_ENGLISH),
-                'value' => $result['aboutEn']
+                'value' => $result['about_en']
             );
             $data['data']['list'] = $tmp;
             $data['data']['pageData']['page'] = 1;
