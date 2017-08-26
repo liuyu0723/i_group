@@ -15,9 +15,9 @@ class Lang_Zh_Nav {
     const NEWSTAG = '标签管理';
     const NEWSLIST = '新闻管理';
 
-    const NOTIC = '集团通知';
+    const NOTIC = '集团促销';
     const NOTICTAG = '标签管理';
-    const NOTICLIST = '通知管理';
+    const NOTICLIST = '促销管理';
 
     const APPMANAGER = 'APP管理';
     const STARTMSGLIST = '启动消息管理';
