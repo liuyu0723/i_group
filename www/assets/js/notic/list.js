@@ -13,7 +13,7 @@ iHotel.noticList = (function ($, ypGlobal) {
             language: 'zh-CN'
         });
         noticList.init({
-            colCount: 9,
+            colCount: 12,
             autoLoad: true,
             listUrl: ypGlobal.listUrl,
             listDomObject: $("#dataList"),

@@ -29,7 +29,7 @@
                     <select id="filter_tag" data-paramkey='tag' class="input-medium select-long" op="filterCase">
                         <option value="all"><?php echo Enum_Lang::getPageText('system', 'all'); ?></option>
                         <?php foreach ($tagList as $tag) { ?>
-                            <option value="<?php echo $tag['id']; ?>"><?php echo $tag['title_lang1']; ?></option>
+                            <option value="<?php echo $tag['id']; ?>"><?php echo $tag['title_lang'.$langIndex]; ?></option>
                         <?php } ?>
                     </select>
                 </div>

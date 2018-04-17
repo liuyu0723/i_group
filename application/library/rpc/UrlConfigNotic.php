@@ -14,7 +14,17 @@ class Rpc_UrlConfigNotic {
                     'format' => 'int',
                     'style' => 'interface'
                 ),
-                'title' => array(
+                'title_lang1' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'title_lang2' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'title_lang3' => array(
                     'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
@@ -57,6 +67,11 @@ class Rpc_UrlConfigNotic {
                     'format' => 'int',
                     'style' => 'interface'
                 ),
+                'lang' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
                 'page' => array(
                     'required' => false,
                     'format' => 'int',
@@ -85,7 +100,17 @@ class Rpc_UrlConfigNotic {
                     'format' => 'int',
                     'style' => 'interface'
                 ),
-                'title' => array(
+                'title_lang1' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'title_lang2' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'title_lang3' => array(
                     'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
@@ -103,7 +128,17 @@ class Rpc_UrlConfigNotic {
                     'format' => 'int',
                     'style' => 'interface'
                 ),
-                'title' => array(
+                'title_lang1' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'title_lang2' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'title_lang3' => array(
                     'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
@@ -131,12 +166,32 @@ class Rpc_UrlConfigNotic {
                     'format' => 'int',
                     'style' => 'interface'
                 ),
-                'title' => array(
+                'title_lang1' => array(
                     'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
                 ),
-                'article' => array(
+                'title_lang2' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'title_lang3' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'article_lang1' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'article_lang2' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'article_lang3' => array(
                     'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
@@ -194,12 +249,17 @@ class Rpc_UrlConfigNotic {
                     'format' => 'int',
                     'style' => 'interface'
                 ),
-                'title' => array(
+                'title_lang1' => array(
                     'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
                 ),
-                'article' => array(
+                'title_lang2' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'title_lang3' => array(
                     'required' => false,
                     'format' => 'string',
                     'style' => 'interface'

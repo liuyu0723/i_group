@@ -27,7 +27,9 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th><?php echo Enum_Lang::getPageText('news', 'tagTitle'); ?></th>
+                                        <?php foreach ($languageList as $language) { ?>
+                                            <th><?php echo Enum_Lang::getPageText('news', 'tagTitle'); ?>（<?php echo Enum_Lang::getPageText('language', $language); ?>）</th>
+                                        <?php } ?>
                                         <th>操作</th>
                                     </tr>
                                     </thead>
@@ -63,7 +65,9 @@
     {{each list as info i}}
     <tr dataId="{{info.id}}">
         <td type="id" data-value="{{info.id}}">{{info.id}}</td>
-        <td type="title" data-value="{{info.title}}">{{info.title}}</td>
+        <?php foreach ($languageList as $language) { ?>
+            <td type="titleLang<?php echo Enum_Lang::getLangIndex($language); ?>" data-value="{{info.titleLang<?php echo Enum_Lang::getLangIndex($language); ?>}}">{{info.titleLang<?php echo Enum_Lang::getLangIndex($language); ?>}}</td>
+        <?php } ?>
         <td>
             <button op="editDataOne" type="button" class="btn btn-info btn-sm" data-dataid="{{info.id}}">修改</button>
         </td>

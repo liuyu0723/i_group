@@ -11,18 +11,22 @@
                 <form class="form-horizontal" id="listEditor">
                     <input type="hidden" id="edit_id" value="0">
                     <?php $filedTitle = Enum_Lang::getPageText('notic', 'title'); ?>
-                    <div class="control-group" op="editFiled">
-                        <label class="control-label" for="edit_title"><?php echo $filedTitle; ?>：</label>
-                        <div class="controls">
-                            <input type="text" id="edit_title" placeholder="<?php echo $filedTitle; ?>" class="span3" data-title="<?php echo $filedTitle; ?>">
+                    <?php foreach ($languageList as $language) { ?>
+                        <div class="control-group" op="editFiled">
+                            <label class="control-label" for="edit_titleLang<?php echo Enum_Lang::getLangIndex($language); ?>"><?php echo $filedTitle; ?>(<?php echo Enum_Lang::getPageText('language', $language); ?>)：</label>
+                            <div class="controls">
+                                <input type="text" id="edit_titleLang<?php echo Enum_Lang::getLangIndex($language); ?>"
+                                       placeholder="<?php echo $filedTitle; ?>" class="span3"
+                                       data-title="<?php echo $filedTitle; ?>">
+                            </div>
                         </div>
-                    </div>
+                    <?php } ?>
                     <div class="control-group" op="editFiled">
                         <label class="control-label" for="edit_tagid"><?php echo Enum_Lang::getPageText('notic', 'tagTitle'); ?>：</label>
                         <div class="controls">
                             <select id="edit_tagid" data-title="标签">
                                 <?php foreach ($tagList as $tag) { ?>
-                                    <option value="<?php echo $tag['id']; ?>"><?php echo $tag['title']; ?></option>
+                                    <option value="<?php echo $tag['id']; ?>"><?php echo $tag['title_lang'.$langIndex]; ?></option>
                                 <?php } ?>
                             </select>
                         </div>

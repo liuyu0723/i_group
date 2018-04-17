@@ -9,10 +9,13 @@ class NoticajaxController extends \BaseController {
     /** @var  Convertor_Notic */
     private $convertor;
 
+    private $_lang;
+
     public function init() {
         parent::init();
         $this->model = new NoticModel();
         $this->convertor = new Convertor_Notic();
+        $this->_lang = Enum_Lang::getSystemLang();
     }
 
     /**
@@ -31,7 +34,9 @@ class NoticajaxController extends \BaseController {
      */
     private function handlerTagSaveParams() {
         $paramList = array();
-        $paramList['title'] = trim($this->getPost("title"));
+        $paramList['title_lang1'] = trim($this->getPost("titleLang1"));
+        $paramList['title_lang2'] = trim($this->getPost("titleLang2"));
+        $paramList['title_lang3'] = trim($this->getPost("titleLang3"));
         $paramList['groupid'] = intval($this->getGroupId());
         return $paramList;
     }
@@ -63,7 +68,7 @@ class NoticajaxController extends \BaseController {
         $paramList['groupid'] = $this->getGroupId();
         $paramList['id'] = intval($this->getPost('id'));
         $paramList['tagid'] = intval($this->getPost('tag'));
-        $paramList['title'] = $this->getPost('title');
+        $paramList['title_lang'.$this->_lang] = $this->getPost('title');
         $status = $this->getPost('status');
         $status !== 'all' && !is_null($status) ? $paramList['status'] = intval($status) : false;
         $result = $this->model->getList($paramList);
@@ -76,7 +81,9 @@ class NoticajaxController extends \BaseController {
      */
     private function handlerSaveParams() {
         $paramList = array();
-        $paramList['title'] = trim($this->getPost("title"));
+        $paramList['title_lang1'] = trim($this->getPost("titleLang1"));
+        $paramList['title_lang2'] = trim($this->getPost("titleLang2"));
+        $paramList['title_lang3'] = trim($this->getPost("titleLang3"));
         $paramList['tagid'] = intval($this->getPost("tagid"));
         $paramList['status'] = intval($this->getPost("status"));
         $paramList['groupid'] = intval($this->getGroupId());

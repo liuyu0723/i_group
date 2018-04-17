@@ -22,6 +22,8 @@ class Convertor_News extends Convertor_Base {
                 $dataTemp = array();
                 $dataTemp['id'] = $value['id'];
                 $dataTemp['title'] = $value['title'];
+                $dataTemp['titleLang1'] = $value['titleLang1'];
+                $dataTemp['titleLang2'] = $value['titleLang2'];
                 $tmp[] = $dataTemp;
             }
             $data['data']['list'] = $tmp;
@@ -37,7 +39,7 @@ class Convertor_News extends Convertor_Base {
      * @param array $list
      * @return array
      */
-    public function getListConvertor($list) {
+    public function getListConvertor($list, $lang = 1) {
         $data = array(
             'code' => intval($list['code']),
             'msg' => $list['msg']
@@ -48,8 +50,10 @@ class Convertor_News extends Convertor_Base {
             foreach ($result['list'] as $key => $value) {
                 $dataTemp = array();
                 $dataTemp['id'] = $value['id'];
-                $dataTemp['title'] = $value['title'];
-                $dataTemp['article'] = $value['article'];
+                $dataTemp['titleLang1'] = $value['title_lang1'];
+                $dataTemp['titleLang2'] = $value['title_lang2'];
+                $dataTemp['articleLang1'] = $value['article_lang1'];
+                $dataTemp['articleLang2'] = $value['article_lang2'];
                 $dataTemp['status'] = $value['status'];
                 $dataTemp['statusShow'] = $value['status'] ? Enum_Lang::getPageText('news', 'enable') : Enum_Lang::getPageText('news', 'disable');
                 $dataTemp['tagid'] = $value['tagId'];

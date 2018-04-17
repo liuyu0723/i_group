@@ -7,6 +7,9 @@ class NoticController extends BaseController {
 
     public function init() {
         parent::init();
+        $languageList = array(Enum_Lang::LANG_KEY_CHINESE, Enum_Lang::LANG_KEY_ENGLISH);
+        $this->_view->assign('languageList', $languageList);
+        $this->_view->assign('langIndex', Enum_Lang::getSystemLang(true));
     }
 
     /**

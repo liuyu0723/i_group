@@ -14,7 +14,17 @@ class Rpc_UrlConfigNews {
                     'format' => 'int',
                     'style' => 'interface'
                 ),
-                'title' => array(
+                'lang' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'title_lang1' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'title_lang2' => array(
                     'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
@@ -55,6 +65,11 @@ class Rpc_UrlConfigNews {
                 'groupid' => array(
                     'required' => true,
                     'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'lang' => array(
+                    'required' => false,
+                    'format' => 'string',
                     'style' => 'interface'
                 ),
                 'page' => array(
@@ -98,7 +113,12 @@ class Rpc_UrlConfigNews {
                     'format' => 'int',
                     'style' => 'interface'
                 ),
-                'title' => array(
+                'title_lang1' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'title_lang2' => array(
                     'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
@@ -116,7 +136,12 @@ class Rpc_UrlConfigNews {
                     'format' => 'int',
                     'style' => 'interface'
                 ),
-                'title' => array(
+                'title_lang1' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'title_lang2' => array(
                     'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
@@ -144,12 +169,22 @@ class Rpc_UrlConfigNews {
                     'format' => 'int',
                     'style' => 'interface'
                 ),
-                'title' => array(
+                'title_lang1' => array(
                     'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
                 ),
-                'article' => array(
+                'title_lang2' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'article_lang1' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'article_lang2' => array(
                     'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
@@ -207,7 +242,12 @@ class Rpc_UrlConfigNews {
                     'format' => 'int',
                     'style' => 'interface'
                 ),
-                'title' => array(
+                'title_lang1' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'title_lang2' => array(
                     'required' => false,
                     'format' => 'string',
                     'style' => 'interface'

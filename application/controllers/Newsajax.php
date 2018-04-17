@@ -31,7 +31,8 @@ class NewsajaxController extends \BaseController {
      */
     private function handlerTagSaveParams() {
         $paramList = array();
-        $paramList['title'] = trim($this->getPost("title"));
+        $paramList['title_lang1'] = trim($this->getPost("titleLang1"));
+        $paramList['title_lang2'] = trim($this->getPost("titleLang2"));
         $paramList['groupid'] = intval($this->getGroupId());
         return $paramList;
     }
@@ -59,15 +60,17 @@ class NewsajaxController extends \BaseController {
      * 获取新闻列表
      */
     public function getListAction() {
+        $langIndex = Enum_Lang::getSystemLang(true);
         $paramList['page'] = $this->getPost('page');
         $paramList['groupid'] = $this->getGroupId();
         $paramList['id'] = intval($this->getPost('id'));
         $paramList['tagid'] = intval($this->getPost('tag'));
-        $paramList['title'] = $this->getPost('title');
+        $paramList['title_lang'.$langIndex] = $this->getPost('title');
+        $paramList['lang'] = Enum_Lang::getSystemLang();
         $status = $this->getPost('status');
         $status !== 'all' && !is_null($status) ? $paramList['status'] = intval($status) : false;
         $result = $this->model->getList($paramList);
-        $result = $this->convertor->getListConvertor($result);
+        $result = $this->convertor->getListConvertor($result, $langIndex);
         $this->echoJson($result);
     }
 
@@ -76,7 +79,8 @@ class NewsajaxController extends \BaseController {
      */
     private function handlerSaveParams() {
         $paramList = array();
-        $paramList['title'] = trim($this->getPost("title"));
+        $paramList['title_lang1'] = trim($this->getPost("titleLang1"));
+        $paramList['title_lang2'] = trim($this->getPost("titleLang2"));
         $paramList['tagid'] = intval($this->getPost("tagid"));
         $paramList['status'] = intval($this->getPost("status"));
         $paramList['groupid'] = intval($this->getGroupId());

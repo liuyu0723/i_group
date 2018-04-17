@@ -11,12 +11,16 @@
                 <form class="form-horizontal" id="listEditor">
                     <input type="hidden" id="edit_id" value="0">
                     <?php $filedTitle = Enum_Lang::getPageText('notic', 'tagTitle'); ?>
-                    <div class="control-group" op="editFiled">
-                        <label class="control-label" for="edit_title"><?php echo $filedTitle; ?>：</label>
-                        <div class="controls">
-                            <input type="text" id="edit_title" placeholder="<?php echo $filedTitle; ?>" class="span3" data-title="<?php echo $filedTitle; ?>">
+                    <?php foreach ($languageList as $language) { ?>
+                        <div class="control-group" op="editFiled">
+                            <label class="control-label" for="edit_title"><?php echo $filedTitle; ?>(<?php echo Enum_Lang::getPageText('language', $language); ?>)：</label>
+                            <div class="controls">
+                                <input type="text" id="edit_titleLang<?php echo Enum_Lang::getLangIndex($language); ?>"
+                                       placeholder="<?php echo $filedTitle; ?>" class="span3"
+                                       data-title="<?php echo $filedTitle; ?>">
+                            </div>
                         </div>
-                    </div>
+                    <?php } ?>
                 </form>
             </div>
             <div class="modal-footer">

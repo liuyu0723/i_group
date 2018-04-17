@@ -30,7 +30,7 @@ class NewsModel extends \BaseModel {
                 'code' => 1,
                 'msg' => '参数错误'
             );
-            if (empty($params['title']) || empty($params['groupid'])) {
+            if (empty($params['title_lang1']) || empty($params['groupid'])) {
                 break;
             }
             $interfaceId = $params['id'] ? 'NT004' : 'NT005';
@@ -47,11 +47,14 @@ class NewsModel extends \BaseModel {
      */
     public function getList($paramList) {
         do {
+            $langIndex = Enum_Lang::getSystemLang(true);
             $params['groupid'] = $paramList['groupid'];
             $paramList['id'] ? $params['id'] = $paramList['id'] : false;
             $paramList['tagid'] ? $params['tagid'] = $paramList['tagid'] : false;
-            $paramList['title'] ? $params['title'] = $paramList['title'] : false;
+            $paramList['title_lang'.$langIndex] ? $params['title_lang'.$langIndex] = $paramList['title_lang'.$langIndex] : false;
             isset($paramList['status']) ? $params['status'] = $paramList['status'] : false;
+            $paramList['lang'] ? $params['lang'] = $paramList['lang'] : false;
+
             $this->setPageParam($params, $paramList['page'], $paramList['limit'], 15);
             $result = $this->rpcClient->getResultRaw('NT001', $params);
         } while (false);
@@ -68,7 +71,7 @@ class NewsModel extends \BaseModel {
                 'code' => 1,
                 'msg' => '参数错误'
             );
-            if (empty($params['title']) || empty($params['groupid'])) {
+            if (empty($params['title_lang1']) || empty($params['groupid'])) {
                 break;
             }
             unset($params['pic']);
