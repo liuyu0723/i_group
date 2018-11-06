@@ -81,6 +81,10 @@ class NewsajaxController extends \BaseController {
         $paramList = array();
         $paramList['title_lang1'] = trim($this->getPost("titleLang1"));
         $paramList['title_lang2'] = trim($this->getPost("titleLang2"));
+        $paramList['link_lang1'] = trim($this->getPost("linkLang1"));
+        $paramList['link_lang2'] = trim($this->getPost("linkLang2"));
+        $paramList['link_lang3'] = trim($this->getPost("linkLang3"));
+
         $paramList['tagid'] = intval($this->getPost("tagid"));
         $paramList['status'] = intval($this->getPost("status"));
         $paramList['groupid'] = intval($this->getGroupId());

@@ -67,6 +67,11 @@ class Convertor_Notic extends Convertor_Base {
                 $dataTemp['videoShow'] = $value['video'] ? Enum_Img::getPathByKeyAndType($value['video']) : '';
                 $dataTemp['video'] = $value['video'];
                 $dataTemp['pic'] = Enum_Img::getPathByKeyAndType($value['pic']);
+
+                $dataTemp['linkLang1'] = $value['link_lang1'];
+                $dataTemp['linkLang2'] = $value['link_lang2'];
+                $dataTemp['linkLang3'] = $value['link_lang3'];
+
                 $tmp[] = $dataTemp;
             }
             $data['data']['list'] = $tmp;

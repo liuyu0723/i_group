@@ -196,6 +196,21 @@ class Rpc_UrlConfigNotic {
                     'format' => 'string',
                     'style' => 'interface'
                 ),
+                'link_lang1' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'link_lang2' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'link_lang3' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
                 'status' => array(
                     'required' => false,
                     'format' => 'int',
@@ -260,6 +275,21 @@ class Rpc_UrlConfigNotic {
                     'style' => 'interface'
                 ),
                 'title_lang3' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'link_lang1' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'link_lang2' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'link_lang3' => array(
                     'required' => false,
                     'format' => 'string',
                     'style' => 'interface'

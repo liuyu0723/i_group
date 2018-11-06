@@ -107,6 +107,9 @@
         </td>
         <td type="sort" data-value="{{info.sort}}">{{info.sort}}</td>
         <td type="status" data-value="{{info.status}}">{{info.statusShow}}</td>
+        <?php foreach ($languageList as $language) { ?>
+            <td style="display: none" type="linkLang<?php echo Enum_Lang::getLangIndex($language); ?>" data-value="{{info.linkLang<?php echo Enum_Lang::getLangIndex($language); ?>}}">{{info.linkLang<?php echo Enum_Lang::getLangIndex($language); ?>}}</td>
+        <?php } ?>
         <td type="createtime" data-value="{{info.createtime}}">{{info.createtime}}</td>
         <td type="updatetime" data-value="{{info.updatetime}}">{{info.updatetime}}</td>
         <td>

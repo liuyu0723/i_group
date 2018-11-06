@@ -179,6 +179,21 @@ class Rpc_UrlConfigNews {
                     'format' => 'string',
                     'style' => 'interface'
                 ),
+                'link_lang1' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'link_lang2' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'link_lang3' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
                 'article_lang1' => array(
                     'required' => false,
                     'format' => 'string',
@@ -248,6 +263,21 @@ class Rpc_UrlConfigNews {
                     'style' => 'interface'
                 ),
                 'title_lang2' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'link_lang1' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'link_lang2' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'link_lang3' => array(
                     'required' => false,
                     'format' => 'string',
                     'style' => 'interface'

@@ -21,6 +21,19 @@
                             </div>
                         </div>
                     <?php } ?>
+
+                    <?php $filedTitle = Enum_Lang::getPageText('news', 'outerLink'); ?>
+                    <?php foreach ($languageList as $language) { ?>
+                        <div class="control-group" op="editFiled">
+                            <label class="control-label" for="edit_linkLang<?php echo Enum_Lang::getLangIndex($language); ?>"><?php echo $filedTitle; ?>(<?php echo Enum_Lang::getPageText('language', $language); ?>)：</label>
+                            <div class="controls">
+                                <input type="text" id="edit_linkLang<?php echo Enum_Lang::getLangIndex($language); ?>"
+                                       placeholder="<?php echo $filedTitle; ?>" class="span3"
+                                       data-title="<?php echo $filedTitle; ?>">
+                            </div>
+                        </div>
+                    <?php } ?>
+
                     <div class="control-group" op="editFiled">
                         <label class="control-label" for="edit_tagid"><?php echo Enum_Lang::getPageText('notic', 'tagTitle'); ?>：</label>
                         <div class="controls">

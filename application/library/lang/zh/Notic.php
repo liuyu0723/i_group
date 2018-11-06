@@ -15,4 +15,5 @@ class Lang_Zh_Notic {
     const PDF = 'PDF';
     const VIDEO = '视频';
     const PIC = '图片';
+    const OUTERLINK = '外部链接';
 }
