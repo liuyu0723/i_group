@@ -64,9 +64,16 @@ class NewsajaxController extends \BaseController {
         $paramList['page'] = $this->getPost('page');
         $paramList['groupid'] = $this->getGroupId();
         $paramList['id'] = intval($this->getPost('id'));
-        $paramList['tagid'] = intval($this->getPost('tag'));
+        $tag = $this->getPost('tag');
+        ($tag !== 'all' && !is_null($tag)) ? $paramList['tagid'] = intval($tag) : false;
+        $lang = $this->getPost('lang');
+        if ($lang !== 'all' && !is_null($lang)) {
+            $key = Enum_Lang::$langIndexList[$lang];
+            if ($key > 0) {
+                $paramList['lang'] = $lang;
+            }
+        }
         $paramList['title_lang'.$langIndex] = $this->getPost('title');
-        $paramList['lang'] = Enum_Lang::getSystemLang();
         $status = $this->getPost('status');
         $status !== 'all' && !is_null($status) ? $paramList['status'] = intval($status) : false;
         $result = $this->model->getList($paramList);
@@ -84,6 +91,9 @@ class NewsajaxController extends \BaseController {
         $paramList['link_lang1'] = trim($this->getPost("linkLang1"));
         $paramList['link_lang2'] = trim($this->getPost("linkLang2"));
         $paramList['link_lang3'] = trim($this->getPost("linkLang3"));
+        $paramList['enable_lang1'] = trim($this->getPost("enableLang1"));
+        $paramList['enable_lang2'] = trim($this->getPost("enableLang2"));
+        $paramList['enable_lang3'] = trim($this->getPost("enableLang3"));
 
         $paramList['tagid'] = intval($this->getPost("tagid"));
         $paramList['status'] = intval($this->getPost("status"));

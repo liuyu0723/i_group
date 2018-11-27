@@ -16,4 +16,5 @@ class Lang_Zh_Notic {
     const VIDEO = '视频';
     const PIC = '图片';
     const OUTERLINK = '外部链接';
+    const LANGUAGE = '语言';
 }

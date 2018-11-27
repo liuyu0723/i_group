@@ -70,6 +70,10 @@ class Convertor_News extends Convertor_Base {
                 $dataTemp['linkLang2'] = $value['link_lang2'];
                 $dataTemp['linkLang3'] = $value['link_lang3'];
 
+                $dataTemp['enableLang1'] = $value['enable_lang1'];
+                $dataTemp['enableLang2'] = $value['enable_lang2'];
+                $dataTemp['enableLang3'] = $value['enable_lang3'];
+
                 $tmp[] = $dataTemp;
             }
             $data['data']['list'] = $tmp;

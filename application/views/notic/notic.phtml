@@ -107,6 +107,9 @@
         </td>
         <td type="sort" data-value="{{info.sort}}">{{info.sort}}</td>
         <td type="status" data-value="{{info.status}}">{{info.statusShow}}</td>
+        <td type="enableLang1" data-value="{{info.enableLang1}}" style="display:none;"></td>
+        <td type="enableLang2" data-value="{{info.enableLang2}}" style="display:none;"></td>
+        <td type="enableLang3" data-value="{{info.enableLang3}}" style="display:none;"></td>
         <?php foreach ($languageList as $language) { ?>
             <td style="display: none" type="linkLang<?php echo Enum_Lang::getLangIndex($language); ?>" data-value="{{info.linkLang<?php echo Enum_Lang::getLangIndex($language); ?>}}">{{info.linkLang<?php echo Enum_Lang::getLangIndex($language); ?>}}</td>
         <?php } ?>

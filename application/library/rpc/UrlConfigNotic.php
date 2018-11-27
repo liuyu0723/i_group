@@ -29,6 +29,11 @@ class Rpc_UrlConfigNotic {
                     'format' => 'string',
                     'style' => 'interface'
                 ),
+                'lang' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
                 'status' => array(
                     'required' => false,
                     'format' => 'int',
@@ -246,6 +251,21 @@ class Rpc_UrlConfigNotic {
                     'format' => 'string',
                     'style' => 'interface'
                 ),
+                'enable_lang1' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'enable_lang2' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'enable_lang3' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
             )
         ),
     	'N007' => array(
@@ -327,6 +347,21 @@ class Rpc_UrlConfigNotic {
                 'video' => array(
                     'required' => false,
                     'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'enable_lang1' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'enable_lang2' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'enable_lang3' => array(
+                    'required' => false,
+                    'format' => 'int',
                     'style' => 'interface'
                 ),
             )

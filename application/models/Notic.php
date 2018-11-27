@@ -54,6 +54,9 @@ class NoticModel extends \BaseModel {
             $paramList['title_lang2'] ? $params['title_lang2'] = $paramList['title_lang2'] : false;
             $paramList['title_lang3'] ? $params['title_lang3'] = $paramList['title_lang3'] : false;
             isset($paramList['status']) ? $params['status'] = $paramList['status'] : false;
+            isset($paramList['lang']) ? $params['lang'] = $paramList['lang'] : false;
+            $langIndex = Enum_Lang::getLangIndex();
+            $paramList['title_lang'.$langIndex] ? $params['title_lang'.$langIndex] = $paramList['title_lang'.$langIndex] : false;
             $this->setPageParam($params, $paramList['page'], $paramList['limit'], 15);
             $result = $this->rpcClient->getResultRaw('N001', $params);
         } while (false);

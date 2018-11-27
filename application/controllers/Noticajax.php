@@ -71,6 +71,13 @@ class NoticajaxController extends \BaseController {
         $paramList['title_lang'.$this->_lang] = $this->getPost('title');
         $status = $this->getPost('status');
         $status !== 'all' && !is_null($status) ? $paramList['status'] = intval($status) : false;
+        $lang = $this->getPost('lang');
+        if ($lang !== 'all' && !is_null($lang)) {
+            $key = Enum_Lang::$langIndexList[$lang];
+            if ($key > 0) {
+                $paramList['lang'] = $lang;
+            }
+        }
         $result = $this->model->getList($paramList);
         $result = $this->convertor->getListConvertor($result);
         $this->echoJson($result);
@@ -87,6 +94,9 @@ class NoticajaxController extends \BaseController {
         $paramList['link_lang1'] = trim($this->getPost("linkLang1"));
         $paramList['link_lang2'] = trim($this->getPost("linkLang2"));
         $paramList['link_lang3'] = trim($this->getPost("linkLang3"));
+        $paramList['enable_lang1'] = trim($this->getPost("enableLang1"));
+        $paramList['enable_lang2'] = trim($this->getPost("enableLang2"));
+        $paramList['enable_lang3'] = trim($this->getPost("enableLang3"));
         $paramList['tagid'] = intval($this->getPost("tagid"));
         $paramList['status'] = intval($this->getPost("status"));
         $paramList['groupid'] = intval($this->getGroupId());
