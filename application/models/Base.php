@@ -57,8 +57,8 @@ class BaseModel {
 
     /**
      * 上传文件
-     * @param $file 待上传的文件
-     * @param $path 待上传的文件类型
+     * @param $file array 待上传的文件
+     * @param $path string 待上传的文件类型
      * @return array
      */
     public function uploadFile($file, $path, $oldFileKey = '') {

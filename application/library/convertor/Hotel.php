@@ -3,12 +3,14 @@
 /**
  * 物业数据转换器
  */
-class Convertor_Hotel extends Convertor_Base {
+class Convertor_Hotel extends Convertor_Base
+{
 
     /**
      * 物业列表
      */
-    public function hotelListConvertor($list) {
+    public function hotelListConvertor($list)
+    {
         $data = array(
             'code' => intval($list['code']),
             'msg' => $list['msg']
@@ -67,6 +69,17 @@ class Convertor_Hotel extends Convertor_Base {
         }
         return $data;
     }
-}
 
-?>
+
+    public function hotelListPermissionConvert($hotelList)
+    {
+        $result = array();
+        foreach ($hotelList as $hotel) {
+            $tmp = array();
+            $tmp['id'] = $hotel['id'];
+            $tmp['name'] = $hotel['name_lang' . Enum_Lang::getSystemLang(true)];
+            $result[] = $tmp;
+        }
+        return $result;
+    }
+}

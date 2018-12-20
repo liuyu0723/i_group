@@ -5,6 +5,7 @@ class Lang_Zh_Nav {
     const GROUPMANAGER = '集团管理';
     const GROUPUSER = '帐号列表';
     const HOTELLIST = '物业列表';
+    const STAFFLIST = '员工物业权限管理';
 
     const ACTIVITY = '活动管理';
     const ACTIVITYTAG = '标签管理';
