@@ -25,6 +25,7 @@ class Convertor_Staff extends Convertor_Base {
                 $dataTemp['lastLoginIp'] = $value['lastloginip'] ? Util_Tools::ntoip($value['lastloginip']) : '';
                 $dataTemp['createTime'] = $value['createtime'] ? date('Y-m-d H:i:s', $value['createtime']) : '';
                 $dataTemp['hotelList'] = $value['hotel_list'];
+                $dataTemp['isNew'] = intval($value['hotelid']) == 99 ? true : false;
                 $tmp[] = $dataTemp;
             }
             $data['data']['list'] = $tmp;
