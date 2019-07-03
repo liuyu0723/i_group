@@ -76,6 +76,7 @@
         <td type="hotelList" data-value="{{info.hotelList}}" style="display: none;"></td>
 
         <td>
+            <span style='color:red;padding-right:5px;'>{{info.isNew}}</span>
             <button op="editDataOne" type="button" class="btn btn-info btn-sm"
                     data-dataid="{{info.id}}"><?php echo Enum_Lang::getPageText('system', 'edit'); ?></button>
             <button op="editStaffPermission" type="button" class="btn btn-info btn-sm" data-dataid="{{info.id}}"><?php echo Enum_Lang::getPageText('staff', 'staffPermission'); ?></button>
